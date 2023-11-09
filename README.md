@@ -7,7 +7,7 @@ Before we get into the specific details, let's understand a typical method to ac
 
 ![image](https://github.com/agupta-git/cloudera_metadata/assets/2523891/7a7d4836-d6cb-4454-9a16-36e0e966833a)
 
-Hive Metastore (HMS) database holds the **metadata** of all Hive & Impala data objects. When user/application is outside the Cloudera cluster, thrift protocol is used to access it.
+Hive Metastore (HMS) database holds the **metadata** of all Hive & Impala data objects. When user/application is outside the Cloudera cluster, thrift protocol is used to access it.  
 Hive & Impala data warehouses hold all the **data objects**. When user/application is outside the Cloudera cluster, Cloudera's JDBC/ODBC [drivers](https://www.cloudera.com/downloads.html) are used to access it.
 
 As you know Cloudera excels at Hybrid architecture and there is a consistent method of accessing metadata and data across different deployment models. Let's now understand how it works. 
@@ -31,7 +31,7 @@ Below are a few ways to access metadata of data objects in Cloudera's Hive & Imp
    
 3. ### sys database
 
-   `sys` database mirrors HMS database and resides in Hive data warehouse. See a couple of example queries to retrieve the metadata of data objects. Note that even though `sys` database is only available in/through Hive data warehouse, it contains the metadata of both Hive & Impala data objects. There are plans to make it available in Impala data warehouse soon.
+   `sys` database mirrors HMS database and resides in Hive data warehouse. See a couple of example queries to retrieve the metadata of data objects. Note that even though `sys` database is only available in/through Hive data warehouse, it contains the metadata of both Hive & Impala data objects.
 
    ```
    -- See a few details about a subset of tables
@@ -52,7 +52,7 @@ Below are a few ways to access metadata of data objects in Cloudera's Hive & Imp
    ```
    curl -k -u <usr>:<pwd> https://<cloudera_datalake_host>:443/<env>/cdp-proxy-api/atlas/api/atlas/v2/types/typedefs/
    ```
-   Note that full Atlas API URL is available in the endpoints section of the datalake. See below for reference.
+   Note that full Atlas API URL is available in the Endpoints section of the datalake. See below for reference.
 
    ![Screen Shot 2023-11-09 at 1 23 47 PM](https://github.com/agupta-git/metadata_cloudera_dw/assets/2523891/8e0f8187-9be0-436c-b0be-2a8430702c8d)
 
