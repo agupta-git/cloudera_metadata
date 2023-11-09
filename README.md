@@ -20,11 +20,25 @@ A single HMS database is available per environment (_environment refers to CDP's
 To access HMS database outside the cluster in both CDP On-Prem and Public Cloud, thrift protocol is used along with the Kerberos authentication mechanism. We must configure cross-realm Kerberos trust between the user/application and Cloudera environment, so they're able to communicate with each other.
 
 ## Ways to access metadata
-Below are a few ways to access metadata of data objects in Cloudera's Hive & Impala data warehouses
-1. HMS
+Below are a few ways to access metadata of data objects in Cloudera's Hive & Impala data warehouses --
+1. Hive Metastore (HMS)  
+
+   HMS database holds the **metadata** of all Hive & Impala data objects. If you're accessing it outside the cluster, use thrift protocol and ensure cross-realm Kerberos trust is configured between the client (user/application) and Cloudera cluster. This is typically done by adding krb5.conf to the client.
+   
 2. sys database
-   - include SQL queries
-3. Atlas API (https://pypi.org/project/apache-atlas/)
-4. Direct access within the cluster
+
+   `sys` database mirros HMS database and resides in Hive data warehouse. See a couple of example queries to retrieve the metadata of data objects. Note that even though `sys` database is only available in/through Hive data warehouse, it contains the metadata of both Hive & Impala data objects. There are plans to make it available in Impala data warehouse soon.
+
+   ```
+   select b.name, a.tbl_name, a.owner, a.tbl_type, c.location, a.view_original_text, a.view_expanded_text
+   from sys.tbls a
+   join sys.dbs b on b.db_id = a.db_id
+   join sys.sds c on c.sd_id = a.sd_id
+   where tbl_name like '%tmp_%';
+   ```
+  
+   
+4. Atlas API (https://pypi.org/project/apache-atlas/)
+5. Direct access within the cluster
 
 ## Summary
