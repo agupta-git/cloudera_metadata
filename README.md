@@ -30,13 +30,17 @@ Below are a few ways to access metadata of data objects in Cloudera's Hive & Imp
    `sys` database mirros HMS database and resides in Hive data warehouse. See a couple of example queries to retrieve the metadata of data objects. Note that even though `sys` database is only available in/through Hive data warehouse, it contains the metadata of both Hive & Impala data objects. There are plans to make it available in Impala data warehouse soon.
 
    ```
+   -- See a few details about a subset of tables
    select b.name, a.tbl_name, a.owner, a.tbl_type, c.location, a.view_original_text, a.view_expanded_text
    from sys.tbls a
    join sys.dbs b on b.db_id = a.db_id
    join sys.sds c on c.sd_id = a.sd_id
    where tbl_name like '%tmp_%';
    ```
-  
+
+   ![Screen Shot 2023-07-19 at 1 47 31 PM](https://github.com/agupta-git/metadata_cloudera_dw/assets/2523891/a9c443b0-feb6-4b6b-9bd8-2bc474ac55a7)
+
+  > Tip: keep [this HMS schema](https://analyticsanvil.wordpress.com/2016/08/21/useful-queries-for-the-hive-metastore/) handy when querying the sys database.
    
 4. Atlas API (https://pypi.org/project/apache-atlas/)
 5. Direct access within the cluster
