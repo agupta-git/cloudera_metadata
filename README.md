@@ -23,11 +23,15 @@ To access HMS database outside the cluster in both CDP On-Prem and Public Cloud,
 Below are a few ways to access metadata of data objects in Cloudera's Hive & Impala data warehouses --
 1. ### Hive Metastore (HMS)  
 
-   HMS database holds the **metadata** of all Hive & Impala data objects. If you're accessing it outside the cluster, use thrift protocol and ensure cross-realm Kerberos trust is configured between the client (user/application) and Cloudera cluster. This is typically done by adding krb5.conf to the client.
-   
-2. ### sys database
+   HMS database holds the **metadata** of all Hive & Impala data objects.
 
-   `sys` database mirros HMS database and resides in Hive data warehouse. See a couple of example queries to retrieve the metadata of data objects. Note that even though `sys` database is only available in/through Hive data warehouse, it contains the metadata of both Hive & Impala data objects. There are plans to make it available in Impala data warehouse soon.
+   If you're accessing it outside the Cloudera cluster, use thrift protocol and ensure cross-realm Kerberos trust is configured between the client (user/application) and Cloudera cluster. This is typically done by adding krb5.conf to the client.
+
+   If you're accessing it within the Cloudera cluster, use the HMS instance that you setup during CDP On-Premise installation or if you're in Public Cloud then use the instructions [here](https://community.cloudera.com/t5/Community-Articles/Accessing-Hive-Metastore-DB-on-CDP-Public-Cloud/ta-p/338590).
+   
+3. ### sys database
+
+   `sys` database mirrors HMS database and resides in Hive data warehouse. See a couple of example queries to retrieve the metadata of data objects. Note that even though `sys` database is only available in/through Hive data warehouse, it contains the metadata of both Hive & Impala data objects. There are plans to make it available in Impala data warehouse soon.
 
    ```
    -- See a few details about a subset of tables
@@ -51,8 +55,5 @@ Below are a few ways to access metadata of data objects in Cloudera's Hive & Imp
    Note that full Atlas API URL is available in the endpoints section of the datalake. See below for reference.
 
    ![Screen Shot 2023-11-09 at 1 23 47 PM](https://github.com/agupta-git/metadata_cloudera_dw/assets/2523891/8e0f8187-9be0-436c-b0be-2a8430702c8d)
-
-
-4. ### Direct access within the cluster
 
 ## Summary
