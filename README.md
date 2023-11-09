@@ -1,4 +1,4 @@
-# Metadata in Cloudera's data warehouse
+# Metadata in Cloudera data warehouses
 
 ## Overview
 Purpose of this article is to explain a few ways to access metadata of data objects in Cloudera's Hive & Impala data warehouses.
