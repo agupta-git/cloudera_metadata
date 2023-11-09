@@ -42,8 +42,16 @@ Below are a few ways to access metadata of data objects in Cloudera's Hive & Imp
 
   > Tip: keep [this HMS schema](https://analyticsanvil.wordpress.com/2016/08/21/useful-queries-for-the-hive-metastore/) handy when querying the sys database.
    
-3. ### Atlas API (https://pypi.org/project/apache-atlas/)
-   
+3. ### Apache Atlas API
+   [Apache Atlas](https://atlas.apache.org/#/) is a governance tool that lets you see the metadata of all data assets, lineage of data and much more. [REST APIs](https://atlas.apache.org/api/v2/index.html) are exposed to retrieve the necessary information remotely. There is also [Python library for Apache Atlas](https://pypi.org/project/apache-atlas/) available on pypi.
+   Below is a common curl example of accesssing Atlas in Cloudera using REST API:
+   ```
+   curl -k -u <usr>:<pwd> https://<cloudera_datalake_host>:443/<env>/cdp-proxy-api/atlas/api/atlas/v2/types/typedefs/
+   ```
+   Note that full Atlas API URL is available in the endpoints section of the datalake. See below for reference.
+
+   ![Screen Shot 2023-11-09 at 1 23 47 PM](https://github.com/agupta-git/metadata_cloudera_dw/assets/2523891/8e0f8187-9be0-436c-b0be-2a8430702c8d)
+
 
 4. ### Direct access within the cluster
 
