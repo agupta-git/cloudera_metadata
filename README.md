@@ -21,11 +21,11 @@ To access HMS database outside the cluster in both CDP On-Prem and Public Cloud,
 
 ## Ways to access metadata
 Below are a few ways to access metadata of data objects in Cloudera's Hive & Impala data warehouses --
-1. Hive Metastore (HMS)  
+1. ### Hive Metastore (HMS)  
 
    HMS database holds the **metadata** of all Hive & Impala data objects. If you're accessing it outside the cluster, use thrift protocol and ensure cross-realm Kerberos trust is configured between the client (user/application) and Cloudera cluster. This is typically done by adding krb5.conf to the client.
    
-2. sys database
+2. ### sys database
 
    `sys` database mirros HMS database and resides in Hive data warehouse. See a couple of example queries to retrieve the metadata of data objects. Note that even though `sys` database is only available in/through Hive data warehouse, it contains the metadata of both Hive & Impala data objects. There are plans to make it available in Impala data warehouse soon.
 
@@ -42,7 +42,9 @@ Below are a few ways to access metadata of data objects in Cloudera's Hive & Imp
 
   > Tip: keep [this HMS schema](https://analyticsanvil.wordpress.com/2016/08/21/useful-queries-for-the-hive-metastore/) handy when querying the sys database.
    
-4. Atlas API (https://pypi.org/project/apache-atlas/)
-5. Direct access within the cluster
+3. ### Atlas API (https://pypi.org/project/apache-atlas/)
+   
+
+4. ### Direct access within the cluster
 
 ## Summary
