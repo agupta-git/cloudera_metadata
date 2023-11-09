@@ -9,6 +9,7 @@ Before we get into the specific details, let's understand a typical method to ac
 
 Hive Metastore (HMS) database holds the **metadata** of all Hive & Impala data objects. When user/application is outside the Cloudera cluster, thrift protocol is used to access it.  
 Hive & Impala data warehouses hold all the **data objects**. When user/application is outside the Cloudera cluster, Cloudera's JDBC/ODBC [drivers](https://www.cloudera.com/downloads.html) are used to access it.
+<hr>
 
 As you know Cloudera excels at Hybrid architecture and there is a consistent method of accessing metadata and data across different deployment models. Let's now understand how it works. 
 > If you're not already familiar with the CDP deployment models, it's highly recommended to check out the following links: [Base](https://docs.cloudera.com/cdp-private-cloud-base/7.1.8/index.html), [Datahub](https://docs.cloudera.com/data-hub/cloud/index.html), [CDW Data Service in Private Cloud](https://docs.cloudera.com/data-warehouse/1.5.0/index.html) and [CDW Data Service in Public Cloud](https://docs.cloudera.com/data-warehouse/cloud/index.html).
