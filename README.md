@@ -57,3 +57,4 @@ Below are a few ways to access metadata of data objects in Cloudera's Hive & Imp
    ![Screen Shot 2023-11-09 at 1 23 47 PM](https://github.com/agupta-git/metadata_cloudera_dw/assets/2523891/8e0f8187-9be0-436c-b0be-2a8430702c8d)
 
 ## Summary
+Glad you made it this far. Even with the complexity that comes with the Hybrid Architecture, Cloudera has made it simple to access the metadata of data objects in Cloudera's data warehouses. There are multiple options available as discussed above, that customers & partners can choose from based on their requirements.
