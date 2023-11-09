@@ -32,7 +32,7 @@ Below are a few ways to access metadata of data objects in Cloudera's Hive & Imp
    
 3. ### sys database
 
-   `sys` database mirrors HMS database and resides in Hive data warehouse. See a couple of example queries to retrieve the metadata of data objects. Note that even though `sys` database is only available in/through Hive data warehouse, it contains the metadata of both Hive & Impala data objects.
+   `sys` database mirrors HMS database and resides in Hive data warehouse. See a couple of example queries to retrieve the metadata of data objects. Note that even though `sys` database is only available through Hive data warehouse, it contains the metadata of both Hive & Impala data objects.
 
    ```
    -- See a few details about a subset of tables
